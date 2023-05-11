@@ -8,6 +8,9 @@ namespace Movies.Application
         Task<int> CreateNewMovie(CreateNewMovieRequest createNewMovie);
         Task UpdateMovie(UpdateMovieRequest updateMovie);
         Task<IEnumerable<MovieListResponse>> GetAllMovies();
+        Task RemovePlayerFromMovieAsync(int movieId, int playerId);
+
+        void RemovePlayerFromMovie(int movieId, int playerId);
 
         Task AddPlayerToMovie(int movieId, List<int> players);
 

@@ -61,5 +61,15 @@ namespace Movies.Application
         {
             throw new NotImplementedException();
         }
+
+        public async Task RemovePlayerFromMovieAsync(int movieId, int playerId)
+        {
+            await movieRepository.RemovePlayerFromMovieAsync(movieId, playerId);
+        }
+
+        public void RemovePlayerFromMovie(int movieId, int playerId)
+        {
+            movieRepository.RemovePlayerFromMovie(movieId, playerId);
+        }
     }
 }

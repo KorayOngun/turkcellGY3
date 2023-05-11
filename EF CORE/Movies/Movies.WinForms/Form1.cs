@@ -48,5 +48,24 @@ namespace Movies.WinForms
             FormMovies formMovies = new FormMovies();
             formMovies.Show();
         }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private async void btn_removePlayer_Click(object sender, EventArgs e)
+        {
+            int movieId = Convert.ToInt16(textBox1.Text);
+            int playerId = Convert.ToInt16(textBox2.Text);
+            movieService.RemovePlayerFromMovie(movieId, playerId);
+        }
+
+        private async void btn_removePlayerAsync_Click(object sender, EventArgs e)
+        {
+            int movieId = Convert.ToInt16(textBox1.Text);
+            int playerId = Convert.ToInt16(textBox2.Text);
+            await movieService.RemovePlayerFromMovieAsync(movieId, playerId);
+        }
     }
 }

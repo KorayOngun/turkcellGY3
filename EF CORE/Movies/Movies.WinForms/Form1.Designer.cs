@@ -30,10 +30,16 @@
         {
             splitContainer1 = new SplitContainer();
             dataGridViewMovies = new DataGridView();
+            label2 = new Label();
+            label1 = new Label();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
+            btn_removePlayer = new Button();
             buttonGetAllMovies = new Button();
             buttonNewMovie = new Button();
             buttonPlayers = new Button();
             buttonDirector = new Button();
+            btn_removePlayerAsync = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -55,10 +61,17 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(btn_removePlayerAsync);
+            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(textBox2);
+            splitContainer1.Panel2.Controls.Add(textBox1);
+            splitContainer1.Panel2.Controls.Add(btn_removePlayer);
             splitContainer1.Panel2.Controls.Add(buttonGetAllMovies);
             splitContainer1.Panel2.Controls.Add(buttonNewMovie);
             splitContainer1.Panel2.Controls.Add(buttonPlayers);
             splitContainer1.Panel2.Controls.Add(buttonDirector);
+            splitContainer1.Panel2.Paint += splitContainer1_Panel2_Paint;
             splitContainer1.Size = new Size(1082, 554);
             splitContainer1.SplitterDistance = 360;
             splitContainer1.TabIndex = 0;
@@ -72,6 +85,48 @@
             dataGridViewMovies.RowTemplate.Height = 25;
             dataGridViewMovies.Size = new Size(1078, 356);
             dataGridViewMovies.TabIndex = 0;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(522, 73);
+            label2.Name = "label2";
+            label2.Size = new Size(154, 15);
+            label2.TabIndex = 8;
+            label2.Text = "Filmden silinecek oyuncu ıd";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(590, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 15);
+            label1.TabIndex = 7;
+            label1.Text = "Film Id";
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(682, 69);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 6;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(682, 12);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 5;
+            // 
+            // btn_removePlayer
+            // 
+            btn_removePlayer.Location = new Point(779, 153);
+            btn_removePlayer.Name = "btn_removePlayer";
+            btn_removePlayer.Size = new Size(100, 23);
+            btn_removePlayer.TabIndex = 4;
+            btn_removePlayer.Text = "oyuncu sil";
+            btn_removePlayer.UseVisualStyleBackColor = true;
+            btn_removePlayer.Click += btn_removePlayer_Click;
             // 
             // buttonGetAllMovies
             // 
@@ -113,6 +168,16 @@
             buttonDirector.UseVisualStyleBackColor = true;
             buttonDirector.Click += buttonDirector_Click;
             // 
+            // btn_removePlayerAsync
+            // 
+            btn_removePlayerAsync.Location = new Point(564, 153);
+            btn_removePlayerAsync.Name = "btn_removePlayerAsync";
+            btn_removePlayerAsync.Size = new Size(157, 23);
+            btn_removePlayerAsync.TabIndex = 9;
+            btn_removePlayerAsync.Text = "oyuncu sil async";
+            btn_removePlayerAsync.UseVisualStyleBackColor = true;
+            btn_removePlayerAsync.Click += btn_removePlayerAsync_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -124,6 +189,7 @@
             Load += Form1_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridViewMovies).EndInit();
@@ -138,5 +204,11 @@
         private Button buttonDirector;
         private Button buttonGetAllMovies;
         private Button buttonNewMovie;
+        private Label label2;
+        private Label label1;
+        private TextBox textBox2;
+        private TextBox textBox1;
+        private Button btn_removePlayer;
+        private Button btn_removePlayerAsync;
     }
 }

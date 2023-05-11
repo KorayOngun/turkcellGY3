@@ -76,5 +76,22 @@ namespace Movies.Data.Repositories
             moviesDbContext.Movies.Update(entity);
             await moviesDbContext.SaveChangesAsync();
         }
+
+        public async Task RemovePlayerFromMovieAsync(int movieId, int playerId)
+        {
+            var movie = await moviesDbContext.Movies.Where(m=>m.Id==movieId).Include(m => m.Players).FirstOrDefaultAsync();
+            var player = movie.Players.FirstOrDefault(m => m.PlayerId == playerId);
+            movie.Players.Remove(player);
+            moviesDbContext.SaveChangesAsync();
+        }
+
+        public void RemovePlayerFromMovie(int movieId, int playerId)
+        {
+            var movie =  moviesDbContext.Movies.Where(m => m.Id == movieId).Include(m => m.Players).FirstOrDefault();
+            
+            var player = movie.Players.FirstOrDefault(m => m.PlayerId == playerId);
+            movie.Players.Remove(player);
+            moviesDbContext.SaveChanges();
+        }
     }
 }
