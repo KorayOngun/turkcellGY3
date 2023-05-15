@@ -88,7 +88,6 @@ namespace Movies.Data.Repositories
         public void RemovePlayerFromMovie(int movieId, int playerId)
         {
             var movie =  moviesDbContext.Movies.Where(m => m.Id == movieId).Include(m => m.Players).FirstOrDefault();
-            
             var player = movie.Players.FirstOrDefault(m => m.PlayerId == playerId);
             movie.Players.Remove(player);
             moviesDbContext.SaveChanges();

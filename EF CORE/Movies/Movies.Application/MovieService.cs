@@ -65,12 +65,20 @@ namespace Movies.Application
 
         public async Task RemovePlayerFromMovieAsync(int movieId, int playerId)
         {
-            await movieRepository.RemovePlayerFromMovieAsync(movieId, playerId);
+            var item = await movieRepository.GetByIdAsync(movieId);
+            if (item != default)
+            {
+                movieRepository.RemovePlayerFromMovieAsync(movieId, playerId);
+            }
         }
 
-        public void RemovePlayerFromMovie(int movieId, int playerId)
+        public async void RemovePlayerFromMovie(int movieId, int playerId)
         {
-            movieRepository.RemovePlayerFromMovie(movieId, playerId);
+            var item = await movieRepository.GetByIdAsync(movieId);
+            if (item != default)
+            {
+                movieRepository.RemovePlayerFromMovie(movieId, playerId);
+            }
         }
     }
 }
